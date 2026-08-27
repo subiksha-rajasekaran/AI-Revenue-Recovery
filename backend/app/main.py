@@ -1,12 +1,22 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Request, Header, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+import json
+
 from app.schemas import (
     TriggerScenarioRequest,
     TriggerScenarioResponse,
     BatchTestResponse,
-    DashboardMetricsResponse
+    DashboardMetricsResponse,
+    DispatchOutreachRequest,
+    DispatchOutreachResponse,
+    PreEmptiveScanResponse,
+    RazorpayWebhookPayload,
+    WebhookResponse
 )
 from app.simulator import process_scenario, run_batch_simulation, get_current_metrics
+from app.outreach import dispatch_outreach
+from app.scanner import execute_preemptive_card_scan
+from app.webhooks import process_razorpay_webhook
 
 app = FastAPI(
     title="RecovAI Engine API",
@@ -14,7 +24,6 @@ app = FastAPI(
     description="Fast Mock API Engine for Revenue Recovery Buildathon"
 )
 
-# Enable CORS for Frontend Development Server
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["http://localhost:5173", "http://127.0.0.1:5173"],
@@ -38,3 +47,22 @@ def trigger_event(request: TriggerScenarioRequest):
 @app.post("/api/v1/simulate/batch-test", response_model=BatchTestResponse)
 def batch_test():
     return run_batch_simulation()
+
+@app.post("/api/v1/outreach/dispatch", response_model=DispatchOutreachResponse)
+def dispatch_outreach_channel(request: DispatchOutreachRequest):
+    return dispatch_outreach(request)
+
+@app.post("/api/v1/cron/scan-preemptive", response_model=PreEmptiveScanResponse)
+def run_preemptive_scan():
+    return execute_preemptive_card_scan()
+
+@app.post("/api/v1/webhooks/razorpay", response_model=WebhookResponse)
+async def razorpay_webhook(
+    payload: RazorpayWebhookPayload,
+    x_razorpay_signature: str = Header(default="demo_signature")
+):
+    raw_body = json.dumps(payload.model_dump()).encode('utf-8')
+    success, response = process_razorpay_webhook(raw_body, x_razorpay_signature)
+    if not success:
+        raise HTTPException(status_code=400, detail=response.message)
+    return response
