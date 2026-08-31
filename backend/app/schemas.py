@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from typing import List, Literal, Optional
+from typing import List, Literal, Optional,Dict
 
 RiskTier = Literal['LOW', 'MEDIUM', 'HIGH']
 ActionOutcome = Literal['PENDING', 'APPROVED', 'SUCCESS', 'STOPPED_DISPUTE', 'ESCALATED']
@@ -30,12 +30,32 @@ class RecoveryCase(BaseModel):
     agentReasoning: str
     createdAt: str
 
+class ExecutionStep(BaseModel):
+    step_number: int
+    name: str
+    status: Literal["passed", "flagged", "executed", "halted"]
+    timestamp: str
+    details: str
+
+class ActivityLogEntry(BaseModel):
+    id: str
+    timestamp: str
+    event_type: str
+    customer_id: str
+    amount_usd: float
+    status: str
+    action_taken: str
+
 class TriggerScenarioResponse(BaseModel):
     success: bool
-    scenario_key: str
-    recovered_amount: float
-    new_case: RecoveryCase
-    thoughts: List[AgentThought]
+    scenario_id: str
+    customer_id: str
+    amount_usd: float
+    risk_score: float
+    action_taken: str
+    compliance_flag: bool
+    execution_steps: List[ExecutionStep]
+    message: str
 
 class BatchTestResponse(BaseModel):
     total_invoices: int
@@ -98,3 +118,87 @@ class WebhookResponse(BaseModel):
     verified: bool
     event_type: str
     message: str
+class ComponentHealth(BaseModel):
+    status: str  # "operational" | "degraded" | "offline"
+    latency_ms: float
+    details: Optional[str] = None
+
+class SystemHealthResponse(BaseModel):
+    overall_status: str  # "healthy" | "degraded" | "critical"
+    api_status: ComponentHealth
+    database_status: ComponentHealth
+    redis_status: ComponentHealth
+    ai_agent_status: ComponentHealth
+    pydantic_validation_status: ComponentHealth
+    timestamp: str
+
+class StrategyBreakdown(BaseModel):
+    strategy_name: str
+    amount_recovered: float
+    success_rate: float
+
+class FunnelStage(BaseModel):
+    stage_name: str
+    count: int
+    conversion_percentage: float
+
+class DetailedAnalyticsResponse(BaseModel):
+    total_failed_arr: float
+    total_recovered_arr: float
+    net_roi_improvement_percentage: float
+    strategy_breakdown: List[StrategyBreakdown]
+    conversion_funnel: List[FunnelStage]
+class StrategyEvaluation(BaseModel):
+    strategy_name: str
+    status: Literal["selected", "rejected", "blocked_by_guardrail"]
+    reason: str
+    estimated_recovery_probability: float
+
+class AiExplainabilityResponse(BaseModel):
+    scenario_id: str
+    risk_score: float
+    ai_confidence_percentage: float
+    compliance_guardrail_applied: Optional[str]
+    is_halted: bool
+    selected_strategy: str
+    decision_reasoning: str
+    evaluations: List[StrategyEvaluation]
+
+class ChannelMessagePayload(BaseModel):
+    channel: Literal["voice_retell", "whatsapp", "sms_twilio"]
+    title: str
+    recipient: str
+    content_payload: str
+    action_url: Optional[str] = None
+    fallback_channel: Optional[str] = None
+
+class ChannelPreviewResponse(BaseModel):
+    customer_id: str
+    amount_usd: float
+    channels: List[ChannelMessagePayload]
+class PreEmptiveAccountRecord(BaseModel):
+    customer_id: str
+    card_last4: str
+    card_brand: str
+    amount_usd: float
+    hours_until_expiration: int
+    proactive_outreach_status: Literal["scheduled", "dispatched", "updated"]
+
+class PreEmptivePreviewResponse(BaseModel):
+    total_scanned: int
+    expiring_48h_count: int
+    protected_arr_at_risk: float
+    accounts: List[PreEmptiveAccountRecord]
+class WebhookLogRecord(BaseModel):
+    event_id: str
+    event_type: str
+    account_id: str
+    signature_verified: bool
+    signature_hash: str
+    received_at: str
+    amount_usd: float
+
+class WebhookInspectorResponse(BaseModel):
+    total_webhooks_ingested: int
+    failed_signatures_blocked: int
+    recent_logs: List[WebhookLogRecord]

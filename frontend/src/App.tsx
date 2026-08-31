@@ -1,166 +1,185 @@
-import { useState, useEffect } from 'react';
-import { HeaderMetrics } from './components/HeaderMetrics';
-import { SimulationToolbar } from './components/SimulationToolbar';
-import type { PolicyMode, RecoveryMetric, RecoveryCase, AgentThought } from './types';
-import { api } from './services/api';
-import { CheckCircle2, AlertTriangle, ShieldAlert, Cpu } from 'lucide-react';
+import React, { useState } from 'react';
+import { SystemHealthDashboard } from './components/SystemHealthDashboard';
+import { ExecutiveRoiCard } from './components/ExecutiveRoiCard';
+import { AiExplainabilityPanel } from './components/AiExplainabilityPanel';
+import { OutreachChannelPreview } from './components/OutreachChannelPreview';
+import { PreEmptiveScannerPanel } from './components/PreEmptiveScannerPanel';
+import { RazorpayWebhookInspector } from './components/RazorpayWebhookInspector';
+import { SystemArchitectureModal } from './components/SystemArchitectureModal';
+import { HowRecovAiWorks } from './components/HowRecovAiWorks'; // <--- Import New Component
+import { Play, Zap, ShieldAlert, RefreshCw, LayoutDashboard, GitMerge } from 'lucide-react';
 
-export function App() {
-  const [policyMode, setPolicyMode] = useState<PolicyMode>('AUTOPILOT');
-  const [metrics, setMetrics] = useState<RecoveryMetric>({
-    totalAtRiskUsd: 142500,
-    recoveredUsd: 98400,
-    recoveryRatePct: 69.05,
-    activeWorkflows: 4,
-    escalatedToHuman: 1,
-  });
+export const App: React.FC = () => {
+  const [activeTab, setActiveTab] = useState<'dashboard' | 'how_it_works'>('dashboard');
+  const [activeScenario, setActiveScenario] = useState<string>('dispute');
+  const [triggering, setTriggering] = useState<boolean>(false);
 
-  const [cases, setCases] = useState<RecoveryCase[]>([]);
-  const [thoughts, setThoughts] = useState<AgentThought[]>([]);
-
-  // Fetch metrics on mount
-  useEffect(() => {
-    api.fetchMetrics()
-      .then(setMetrics)
-      .catch((err) => console.error('Error fetching metrics from backend:', err));
-  }, []);
-
-  const handleTriggerScenario = async (scenarioKey: string) => {
+  const handleScenarioTrigger = async (scenarioId: string) => {
+    setActiveScenario(scenarioId);
+    setTriggering(true);
     try {
-      const data = await api.triggerScenario(scenarioKey, policyMode);
-      
-      // Update Cases and Thoughts live from backend response
-      setCases((prev) => [data.new_case, ...prev]);
-      setThoughts((prev) => [...data.thoughts, ...prev]);
-      
-      // Refresh Metrics
-      const updatedMetrics = await api.fetchMetrics();
-      setMetrics(updatedMetrics);
+      await fetch('http://localhost:8000/api/v1/simulate/trigger-event', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          scenario_id: scenarioId,
+          customer_id: `cust_demo_${scenarioId}`,
+          amount_usd: 1200.00
+        })
+      });
     } catch (err) {
-      console.error('Failed to trigger scenario:', err);
+      console.error("Scenario trigger error:", err);
+    } finally {
+      setTimeout(() => setTriggering(false), 500);
     }
-  };
-
-  const handleRunBatchTest = async () => {
-    try {
-      await api.runBatchTest();
-      const updatedMetrics = await api.fetchMetrics();
-      setMetrics(updatedMetrics);
-    } catch (err) {
-      console.error('Batch test failed:', err);
-    }
-  };
-
-  const handleApproveCase = (id: string, amount: number) => {
-    setCases((prev) =>
-      prev.map((c) => (c.id === id ? { ...c, status: 'SUCCESS' as const } : c))
-    );
-    setMetrics((prev) => ({
-      ...prev,
-      recoveredUsd: prev.recoveredUsd + amount,
-    }));
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 font-sans text-slate-100 flex flex-col">
-      <HeaderMetrics
-        metrics={metrics}
-        policyMode={policyMode}
-        onTogglePolicyMode={setPolicyMode}
-      />
-      <SimulationToolbar
-        onTriggerScenario={handleTriggerScenario}
-        onRunBatchTest={handleRunBatchTest}
-      />
+    <div className="min-h-screen bg-slate-950 text-slate-100 font-sans p-4 md:p-6">
+      {/* Top Header */}
+      <header className="flex flex-col md:flex-row md:items-center justify-between border-b border-slate-800 pb-4 mb-6 gap-4">
+        <div className="flex items-center gap-3">
+          <div className="p-2 bg-indigo-600 rounded-xl shadow-lg shadow-indigo-600/30">
+            <Zap className="w-6 h-6 text-white" />
+          </div>
+          <div>
+            <h1 className="text-xl font-bold text-slate-100 tracking-tight">RecovAI Platform</h1>
+            <p className="text-xs text-slate-400">Autonomous & Bounded Multi-Agent Revenue Protection Engine</p>
+          </div>
+        </div>
 
-      <main className="flex-1 p-6 grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* Recovery Workflows & Review Queue */}
-        <section className="lg:col-span-2 bg-slate-900 border border-slate-800 rounded-2xl p-5 flex flex-col">
-          <div className="flex justify-between items-center mb-4">
-            <h2 className="text-sm font-semibold text-slate-300 uppercase tracking-wider flex items-center gap-2">
-              <Cpu className="w-4 h-4 text-blue-400" />
-              Active Recovery Cases & Approval Queue
-            </h2>
-            <span className="text-xs text-slate-500 font-mono">{cases.length} Total Workflow(s)</span>
+        {/* View Switcher Navigation */}
+        <div className="flex items-center gap-3">
+          <div className="flex bg-slate-900 p-1 rounded-xl border border-slate-800 gap-1">
+            <button
+              onClick={() => setActiveTab('dashboard')}
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+                activeTab === 'dashboard'
+                  ? 'bg-indigo-600 text-white shadow-lg'
+                  : 'text-slate-400 hover:text-white'
+              }`}
+            >
+              <LayoutDashboard className="w-3.5 h-3.5" /> Dashboard View
+            </button>
+            <button
+              onClick={() => setActiveTab('how_it_works')}
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+                activeTab === 'how_it_works'
+                  ? 'bg-emerald-600 text-white shadow-lg'
+                  : 'text-slate-400 hover:text-white'
+              }`}
+            >
+              <GitMerge className="w-3.5 h-3.5" /> How RecovAI Works
+            </button>
           </div>
 
-          <div className="space-y-3 overflow-y-auto max-h-[500px] pr-1">
-            {cases.length === 0 ? (
-              <div className="p-8 text-center text-slate-500 text-sm">
-                No active workflows. Use the toolbar above to trigger a test scenario.
-              </div>
-            ) : (
-              cases.map((c) => (
-                <div
-                  key={c.id}
-                  className="bg-slate-950/80 border border-slate-800 rounded-xl p-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 hover:border-slate-700 transition"
-                >
-                  <div>
-                    <div className="flex items-center gap-2 mb-1">
-                      <span className="font-semibold text-slate-100">{c.companyName}</span>
-                      <span className="text-xs text-slate-400">({c.customerName})</span>
-                      <span className="bg-slate-800 text-slate-300 text-[10px] font-mono px-2 py-0.5 rounded border border-slate-700">
-                        {c.failureReason}
-                      </span>
-                    </div>
-                    <p className="text-xs text-slate-400 mb-2">{c.agentReasoning}</p>
-                    <div className="text-xs text-slate-300 font-medium flex items-center gap-1.5">
-                      <span className="text-slate-500">Strategy:</span> {c.recommendedAction}
-                    </div>
-                  </div>
+          <SystemArchitectureModal />
+        </div>
+      </header>
 
-                  <div className="flex flex-col items-end gap-2 w-full md:w-auto">
-                    <div className="text-lg font-bold text-slate-100">${c.amountDue.toLocaleString()}</div>
-                    {c.status === 'PENDING' ? (
-                      <button
-                        onClick={() => handleApproveCase(c.id, c.amountDue)}
-                        className="bg-amber-500 hover:bg-amber-400 text-slate-950 font-semibold text-xs px-3 py-1.5 rounded-lg shadow transition"
-                      >
-                        Approve & Dispatch
-                      </button>
-                    ) : c.status === 'SUCCESS' ? (
-                      <span className="flex items-center gap-1 text-emerald-400 text-xs font-semibold bg-emerald-500/10 px-2.5 py-1 rounded-full border border-emerald-500/20">
-                        <CheckCircle2 className="w-3.5 h-3.5" /> Recovered
-                      </span>
-                    ) : (
-                      <span className="flex items-center gap-1 text-rose-400 text-xs font-semibold bg-rose-500/10 px-2.5 py-1 rounded-full border border-rose-500/20">
-                        <ShieldAlert className="w-3.5 h-3.5" /> Stopped (Dispute)
-                      </span>
-                    )}
-                  </div>
+      {/* RENDER VIEW BASED ON ACTIVE TAB */}
+      {activeTab === 'how_it_works' ? (
+        <HowRecovAiWorks />
+      ) : (
+        <>
+          {/* Module 1: System Telemetry Header */}
+          <SystemHealthDashboard />
+
+          {/* Scenario Trigger Control Panel */}
+          <div className="bg-slate-900 border border-slate-800 rounded-xl p-4 mb-6 shadow-xl">
+            <div className="flex items-center justify-between mb-3">
+              <span className="text-xs font-semibold uppercase tracking-wider text-slate-300 flex items-center gap-1.5">
+                <Play className="w-4 h-4 text-emerald-400" /> Judge Scenario Trigger Control Panel
+              </span>
+              {triggering && (
+                <span className="text-xs font-mono text-indigo-400 animate-pulse flex items-center gap-1">
+                  <RefreshCw className="w-3 h-3 animate-spin" /> Processing Scenario...
+                </span>
+              )}
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
+              <button
+                onClick={() => handleScenarioTrigger('dispute')}
+                className={`p-2.5 rounded-lg border text-xs font-medium transition-all text-left ${
+                  activeScenario === 'dispute'
+                    ? 'bg-rose-950/80 border-rose-500 text-rose-200 shadow-lg'
+                    : 'bg-slate-950 border-slate-800 text-slate-400 hover:text-slate-200'
+                }`}
+              >
+                <div className="flex items-center gap-1.5 font-bold mb-0.5">
+                  <ShieldAlert className="w-3.5 h-3.5 text-rose-400" /> Active Dispute
                 </div>
-              ))
-            )}
-          </div>
-        </section>
+                <p className="text-[10px] opacity-80">Triggers Rule R-102 Guardrail Halt</p>
+              </button>
 
-        {/* Live Agent Thought Stream */}
-        <section className="bg-slate-900 border border-slate-800 rounded-2xl p-5 flex flex-col">
-          <h2 className="text-sm font-semibold text-slate-300 uppercase tracking-wider mb-4 flex items-center gap-2">
-            <AlertTriangle className="w-4 h-4 text-emerald-400" />
-            Agent Execution & Guardrail Stream
-          </h2>
-          <div className="space-y-3 overflow-y-auto max-h-[500px] pr-1 font-mono text-xs">
-            {thoughts.length === 0 ? (
-              <div className="p-8 text-center text-slate-500 text-sm font-sans">
-                Awaiting agent thought execution log...
-              </div>
-            ) : (
-              thoughts.map((t) => (
-                <div key={t.id} className="bg-slate-950 p-3 rounded-xl border border-slate-800/80">
-                  <div className="flex justify-between text-[10px] text-slate-500 mb-1">
-                    <span className="text-blue-400 font-semibold">{t.agentName}</span>
-                    <span>{t.timestamp}</span>
-                  </div>
-                  <p className="text-slate-300 leading-relaxed">{t.message}</p>
+              <button
+                onClick={() => handleScenarioTrigger('card_expired')}
+                className={`p-2.5 rounded-lg border text-xs font-medium transition-all text-left ${
+                  activeScenario === 'card_expired'
+                    ? 'bg-blue-950/80 border-blue-500 text-blue-200 shadow-lg'
+                    : 'bg-slate-950 border-slate-800 text-slate-400 hover:text-slate-200'
+                }`}
+              >
+                <div className="flex items-center gap-1.5 font-bold mb-0.5 text-blue-400">
+                  Card Expired
                 </div>
-              ))
-            )}
+                <p className="text-[10px] opacity-80">Dispatches 1-Click Update Link</p>
+              </button>
+
+              <button
+                onClick={() => handleScenarioTrigger('soft_decline')}
+                className={`p-2.5 rounded-lg border text-xs font-medium transition-all text-left ${
+                  activeScenario === 'soft_decline'
+                    ? 'bg-purple-950/80 border-purple-500 text-purple-200 shadow-lg'
+                    : 'bg-slate-950 border-slate-800 text-slate-400 hover:text-slate-200'
+                }`}
+              >
+                <div className="flex items-center gap-1.5 font-bold mb-0.5 text-purple-400">
+                  Soft Decline
+                </div>
+                <p className="text-[10px] opacity-80">Dispatches Retell Hinglish Voice</p>
+              </button>
+
+              <button
+                onClick={() => handleScenarioTrigger('general')}
+                className={`p-2.5 rounded-lg border text-xs font-medium transition-all text-left ${
+                  activeScenario === 'general'
+                    ? 'bg-emerald-950/80 border-emerald-500 text-emerald-200 shadow-lg'
+                    : 'bg-slate-950 border-slate-800 text-slate-400 hover:text-slate-200'
+                }`}
+              >
+                <div className="flex items-center gap-1.5 font-bold mb-0.5 text-emerald-400">
+                  Standard Recovery
+                </div>
+                <p className="text-[10px] opacity-80">Executes Multi-Channel Fallback</p>
+              </button>
+            </div>
           </div>
-        </section>
-      </main>
+
+          {/* Module 3: Executive Dashboard & ROI Suite */}
+          <ExecutiveRoiCard />
+
+          {/* Module 4: Glass-Box AI Explainability Panel */}
+          <AiExplainabilityPanel activeScenario={activeScenario} />
+
+          {/* Module 5: Outreach Channel Preview Inspector */}
+          <OutreachChannelPreview />
+
+          {/* Module 6 & 7 Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <PreEmptiveScannerPanel />
+            <RazorpayWebhookInspector />
+          </div>
+        </>
+      )}
+
+      {/* Footer */}
+      <footer className="border-t border-slate-800/80 pt-4 mt-8 text-center text-xs text-slate-500">
+        RecovAI Platform • Built for AI Buildathon 2026 • Autonomous & Bounded Revenue Protection Engine
+      </footer>
     </div>
   );
-}
+};
 
 export default App;

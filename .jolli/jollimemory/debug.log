@@ -1,0 +1,180 @@
+[2026-08-28T06:48:00.818Z] INFO  [SkillProjection] projectActiveSkills: 0 active (0 in registry)
+[2026-08-28T06:48:01.533Z] WARN  [CutoverRouter] database unavailable for un-cutover repo (database file does not exist) — orphan remains authoritative
+[2026-08-28T06:48:01.533Z] INFO  [StorageFactory] StorageFactory.create: route=uncutover, projectPath=c:\Users\rsubi\AI-Revenue-Recovery
+[2026-08-28T06:48:02.137Z] INFO  [Installer] Checking Jolli Memory status
+[2026-08-28T06:48:02.225Z] INFO  [Sync:VsCodeBootstrap] Memory Bank sync engine built (auto-sync off — manual only)
+[2026-08-28T06:48:02.449Z] INFO  [RepoProfile] manual-disable MIGRATE → manuallyDisabled=false (pid=16632, profile=c:\Users\rsubi\AI-Revenue-Recovery\.jolli\jollimemory\profile.json, fence=none, from=legacy-marker) ←  at EJ (c:\Users\rsubi\.vscode\extensions\jolli.jollimemory-vscode-0.99.15\dist\Extension.js:98:909) | at c:\Users\rsubi\.vscode\extensions\jolli.jollimemory-vscode-0.99.15\dist\Extension.js:99:953 | at async df (c:\Users\rsubi\.vscode\extensions\jolli.jollimemory-vscode-0.99.15\dist\Extension.js:3:5846) | at async vJ (c:\Users\rsubi\.vscode\extensions\jolli.jollimemory-vscode-0.99.15\dist\Extension.js:99:572) | at async ho (c:\Users\rsubi\.vscode\extensions\jolli.jollimemory-vscode-0.99.15\dist\Extension.js:99:475) | at async t.refreshHookPathsIfStale (c:\Users\rsubi\.vscode\extensions\jolli.jollimemory-vscode-0.99.15\dist\Extension.js:3841:17986)
+[2026-08-28T06:48:02.559Z] INFO  [RepoProfile] manual-disable read → false (by=migrate:legacy-marker, pid=16632, cwd=c:\Users\rsubi\AI-Revenue-Recovery, profile=c:\Users\rsubi\AI-Revenue-Recovery\.jolli\jollimemory\profile.json, raw: userDisabled=undefined manuallyDisabled=undefined fence=none)
+[2026-08-28T06:48:02.583Z] INFO  [bridge] Own dist-paths/vscode missing, stale, or pointing elsewhere — re-enabling
+[2026-08-28T06:48:02.583Z] INFO  [bridge] enable() called
+[2026-08-28T06:48:02.585Z] INFO  [Installer] Installing Jolli Memory hooks
+[2026-08-28T06:48:02.887Z] WARN  [CutoverRouter] database unavailable for un-cutover repo (database file does not exist) — orphan remains authoritative
+[2026-08-28T06:48:02.887Z] INFO  [StorageFactory] StorageFactory.create: route=uncutover, projectPath=c:\Users\rsubi\AI-Revenue-Recovery
+[2026-08-28T06:48:03.725Z] INFO  [bridge] Merged mode activated {"branch":"main","creationPoint":"70d5a4eb","author":"subiksha-rajasekaran"}
+[2026-08-28T06:48:04.138Z] WARN  [CutoverRouter] database unavailable for un-cutover repo (database file does not exist) — orphan remains authoritative
+[2026-08-28T06:48:04.145Z] WARN  [CutoverRouter] database unavailable for un-cutover repo (database file does not exist) — orphan remains authoritative
+[2026-08-28T06:48:04.146Z] INFO  [StorageFactory] StorageFactory.create: route=uncutover, projectPath=c:\Users\rsubi\AI-Revenue-Recovery
+[2026-08-28T06:48:04.814Z] WARN  [ReadStorageResolver] createReadStorage: folder lacks index.json — falling back to orphan branch (migration incomplete, or folder wiped)
+[2026-08-28T06:48:05.212Z] INFO  [SchemaV5Migration] Storage backend not initialized yet — skipping schema v5 migration (no data to migrate)
+[2026-08-28T06:48:05.212Z] INFO  [activate] Schema v5 migration: alreadyDone=false fresh=true migrated=0 skipped=0
+[2026-08-28T06:48:05.654Z] WARN  [CutoverRouter] database unavailable for un-cutover repo (database file does not exist) — orphan remains authoritative
+[2026-08-28T06:48:05.696Z] INFO  [DispatchScripts] Wrote resolve-dist-path, run-hook, and run-cli scripts to C:\Users\rsubi\.jolli\jollimemory
+[2026-08-28T06:48:05.703Z] INFO  [DistPathWriter] Wrote dist-paths/vscode (version=0.99.15, distDir=c:\Users\rsubi\.vscode\extensions\jolli.jollimemory-vscode-0.99.15\dist)
+[2026-08-28T06:48:05.842Z] INFO  [SkillInstaller] Wrote SKILL.md (revision 3) to C:\Users\rsubi\AI-Revenue-Recovery\.agents\skills\jolli-recall\SKILL.md
+[2026-08-28T06:48:05.908Z] INFO  [SkillInstaller] Wrote SKILL.md (revision 3) to C:\Users\rsubi\AI-Revenue-Recovery\.agents\skills\jolli-search\SKILL.md
+[2026-08-28T06:48:05.935Z] INFO  [SkillInstaller] Wrote SKILL.md (revision 6) to C:\Users\rsubi\AI-Revenue-Recovery\.agents\skills\jolli-local-run\SKILL.md
+[2026-08-28T06:48:05.963Z] INFO  [SkillInstaller] Wrote SKILL.md (revision 5) to C:\Users\rsubi\AI-Revenue-Recovery\.agents\skills\jolli-remote-run\SKILL.md
+[2026-08-28T06:48:05.982Z] INFO  [SkillInstaller] Wrote SKILL.md (revision 9) to C:\Users\rsubi\AI-Revenue-Recovery\.agents\skills\jolli\SKILL.md
+[2026-08-28T06:48:06.152Z] INFO  [GitExclude] Updated C:\Users\rsubi\AI-Revenue-Recovery\.git\info\exclude with 7 Jolli skill exclude paths
+[2026-08-28T06:48:06.157Z] INFO  [McpRegistration] Registered MCP server in C:\Users\rsubi\AI-Revenue-Recovery\.mcp.json
+[2026-08-28T06:48:06.171Z] INFO  [PlanService] detectPlans found 0 plans (0 in registry)
+[2026-08-28T06:48:06.171Z] INFO  [NoteService] detectNotes found 0 notes (0 in registry)
+[2026-08-28T06:48:06.171Z] INFO  [references] detectReferences(*) found 0 (0 in registry)
+[2026-08-28T06:48:06.171Z] INFO  [SkillProjection] projectActiveSkills: 0 active (0 in registry)
+[2026-08-28T06:48:06.178Z] WARN  [CutoverRouter] database unavailable for un-cutover repo (database file does not exist) — orphan remains authoritative
+[2026-08-28T06:48:06.179Z] INFO  [Installer] Checking Jolli Memory status
+[2026-08-28T06:48:06.693Z] INFO  [JsonMcpWriter] Registered MCP server in C:\Users\rsubi\.gemini\settings.json
+[2026-08-28T06:48:06.782Z] INFO  [CodexTomlWriter] Registered Codex MCP server in C:\Users\rsubi\.codex\config.toml
+[2026-08-28T06:48:08.183Z] INFO  [Installer] Status: enabled=false, claude=false, git=false, geminiHook=false, worktreeHooks=false, sessions=1, summaries=0, codex=true/true, gemini=true/true, enabledWorktrees=1, opencode=false/undefined, cursor=false/undefined, copilot=false/true, copilotChat=true, cline=false/undefined
+[2026-08-28T06:48:08.243Z] INFO  [initialLoad] All panels loaded — updating status bar
+[2026-08-28T06:48:08.244Z] INFO  [Installer] Checking Jolli Memory status
+[2026-08-28T06:48:09.528Z] INFO  [JsonMcpWriter] Registered MCP server in C:\Users\rsubi\AppData\Roaming\Code\User\mcp.json
+[2026-08-28T06:48:09.529Z] INFO  [Installer] Status: enabled=false, claude=false, git=false, geminiHook=false, worktreeHooks=false, sessions=1, summaries=0, codex=true/true, gemini=true/true, enabledWorktrees=1, opencode=false/undefined, cursor=false/undefined, copilot=false/true, copilotChat=true, cline=false/undefined
+[2026-08-28T06:48:10.275Z] INFO  [Installer] Status: enabled=false, claude=true, git=false, geminiHook=false, worktreeHooks=true, sessions=1, summaries=0, codex=true/true, gemini=true/true, enabledWorktrees=1, opencode=false/undefined, cursor=false/undefined, copilot=false/true, copilotChat=true, cline=false/undefined
+[2026-08-28T06:48:10.349Z] WARN  [CutoverRouter] database unavailable for un-cutover repo (database file does not exist) — orphan remains authoritative
+[2026-08-28T06:48:10.350Z] INFO  [StorageFactory] StorageFactory.create: route=uncutover, projectPath=c:\Users\rsubi\AI-Revenue-Recovery
+[2026-08-28T06:48:10.670Z] INFO  [GitHookInstaller] Git post-commit hook installed
+[2026-08-28T06:48:10.740Z] INFO  [GitHookInstaller] Git post-rewrite hook installed
+[2026-08-28T06:48:10.752Z] INFO  [GitHookInstaller] Git prepare-commit-msg hook installed
+[2026-08-28T06:48:10.757Z] INFO  [GitHookInstaller] Git post-merge hook installed
+[2026-08-28T06:48:10.762Z] INFO  [GitHookInstaller] Git pre-push hook installed
+[2026-08-28T06:48:10.768Z] INFO  [GeminiHookInstaller] Gemini AfterAgent hook installed
+[2026-08-28T06:48:10.772Z] INFO  [Installer] Skipping v5 migration on vscode-extension source — Extension.ts owns it with UI
+[2026-08-28T06:48:10.772Z] INFO  [Installer] Installation complete
+[2026-08-28T06:48:10.781Z] INFO  [Installer] Checking Jolli Memory status
+[2026-08-28T06:48:11.856Z] INFO  [Installer] Status: enabled=true, claude=true, git=true, geminiHook=true, worktreeHooks=true, sessions=1, summaries=0, codex=true/true, gemini=true/true, enabledWorktrees=1, opencode=false/undefined, cursor=false/undefined, copilot=false/true, copilotChat=true, cline=false/undefined
+[2026-08-28T06:48:11.863Z] WARN  [CutoverRouter] database unavailable for un-cutover repo (database file does not exist) — orphan remains authoritative
+[2026-08-28T06:48:11.863Z] INFO  [Installer] Checking Jolli Memory status
+[2026-08-28T06:48:12.552Z] INFO  [Installer] Status: enabled=true, claude=true, git=true, geminiHook=true, worktreeHooks=true, sessions=1, summaries=0, codex=true/true, gemini=true/true, enabledWorktrees=1, opencode=false/undefined, cursor=false/undefined, copilot=false/true, copilotChat=true, cline=false/undefined
+[2026-08-28T06:48:12.563Z] INFO  [Installer] Checking Jolli Memory status
+[2026-08-28T06:48:13.489Z] INFO  [Installer] Status: enabled=true, claude=true, git=true, geminiHook=true, worktreeHooks=true, sessions=1, summaries=0, codex=true/true, gemini=true/true, enabledWorktrees=1, opencode=false/undefined, cursor=false/undefined, copilot=false/true, copilotChat=true, cline=false/undefined
+[2026-08-28T06:48:13.490Z] INFO  [RepoProfile] manual-disable read → false (by=manuallyDisabled, pid=16632, cwd=c:\Users\rsubi\AI-Revenue-Recovery, profile=c:\Users\rsubi\AI-Revenue-Recovery\.jolli\jollimemory\profile.json, raw: userDisabled=undefined manuallyDisabled=false fence=none)
+[2026-08-30T13:17:00.516Z] INFO  [activate] Activating JolliMemory extension {"workspaceRoot":"c:\\Users\\rsubi\\AI-Revenue-Recovery","extensionPath":"c:\\Users\\rsubi\\.vscode\\extensions\\jolli.jollimemory-vscode-0.99.15"}
+[2026-08-30T13:17:01.188Z] INFO  [initialLoad] Loading all panels
+[2026-08-30T13:17:08.864Z] INFO  [RepoProfile] manual-disable read → false (by=manuallyDisabled, pid=15860, cwd=c:\Users\rsubi\AI-Revenue-Recovery, profile=c:\Users\rsubi\AI-Revenue-Recovery\.jolli\jollimemory\profile.json, raw: userDisabled=undefined manuallyDisabled=false fence=none)
+[2026-08-30T13:17:09.421Z] INFO  [PlanService] detectPlans found 0 plans (0 in registry)
+[2026-08-30T13:17:09.421Z] INFO  [NoteService] detectNotes found 0 notes (0 in registry)
+[2026-08-30T13:17:09.421Z] INFO  [references] detectReferences(*) found 0 (0 in registry)
+[2026-08-30T13:17:09.421Z] INFO  [SkillProjection] projectActiveSkills: 0 active (0 in registry)
+[2026-08-30T13:17:09.430Z] WARN  [CutoverRouter] database unavailable for un-cutover repo (database file does not exist) — orphan remains authoritative
+[2026-08-30T13:17:09.785Z] INFO  [Sync:VsCodeBootstrap] Memory Bank sync engine built (auto-sync off — manual only)
+[2026-08-30T13:17:09.917Z] WARN  [CutoverRouter] database unavailable for un-cutover repo (database file does not exist) — orphan remains authoritative
+[2026-08-30T13:17:09.917Z] INFO  [StorageFactory] StorageFactory.create: route=uncutover, projectPath=c:\Users\rsubi\AI-Revenue-Recovery
+[2026-08-30T13:17:10.204Z] INFO  [Installer] Checking Jolli Memory status
+[2026-08-30T13:17:10.204Z] INFO  [Installer] Checking Jolli Memory status
+[2026-08-30T13:17:11.039Z] WARN  [CutoverRouter] database unavailable for un-cutover repo (database file does not exist) — orphan remains authoritative
+[2026-08-30T13:17:11.040Z] INFO  [StorageFactory] StorageFactory.create: route=uncutover, projectPath=c:\Users\rsubi\AI-Revenue-Recovery
+[2026-08-30T13:17:11.531Z] INFO  [bridge] Merged mode activated {"branch":"main","creationPoint":"70d5a4eb","author":"subiksha-rajasekaran"}
+[2026-08-30T13:17:11.584Z] WARN  [CutoverRouter] database unavailable for un-cutover repo (database file does not exist) — orphan remains authoritative
+[2026-08-30T13:17:11.585Z] INFO  [StorageFactory] StorageFactory.create: route=uncutover, projectPath=c:\Users\rsubi\AI-Revenue-Recovery
+[2026-08-30T13:17:12.191Z] WARN  [CutoverRouter] database unavailable for un-cutover repo (database file does not exist) — orphan remains authoritative
+[2026-08-30T13:17:12.563Z] WARN  [ReadStorageResolver] createReadStorage: folder lacks index.json — falling back to orphan branch (migration incomplete, or folder wiped)
+[2026-08-30T13:17:12.580Z] INFO  [SchemaV5Migration] Storage backend not initialized yet — skipping schema v5 migration (no data to migrate)
+[2026-08-30T13:17:12.580Z] INFO  [activate] Schema v5 migration: alreadyDone=false fresh=true migrated=0 skipped=0
+[2026-08-30T13:17:12.878Z] WARN  [CutoverRouter] database unavailable for un-cutover repo (database file does not exist) — orphan remains authoritative
+[2026-08-30T13:17:16.972Z] INFO  [Installer] Status: enabled=true, claude=true, git=true, geminiHook=true, worktreeHooks=true, sessions=0, summaries=0, codex=true/true, gemini=true/true, enabledWorktrees=1, opencode=false/undefined, cursor=false/undefined, copilot=false/true, copilotChat=true, cline=false/undefined
+[2026-08-30T13:17:16.994Z] INFO  [Installer] Status: enabled=true, claude=true, git=true, geminiHook=true, worktreeHooks=true, sessions=0, summaries=0, codex=true/true, gemini=true/true, enabledWorktrees=1, opencode=false/undefined, cursor=false/undefined, copilot=false/true, copilotChat=true, cline=false/undefined
+[2026-08-30T13:17:17.002Z] WARN  [CutoverRouter] database unavailable for un-cutover repo (database file does not exist) — orphan remains authoritative
+[2026-08-30T13:17:17.002Z] INFO  [Installer] Checking Jolli Memory status
+[2026-08-30T13:17:17.004Z] INFO  [initialLoad] All panels loaded — updating status bar
+[2026-08-30T13:17:17.004Z] INFO  [Installer] Checking Jolli Memory status
+[2026-08-30T13:17:18.129Z] INFO  [Installer] Status: enabled=true, claude=true, git=true, geminiHook=true, worktreeHooks=true, sessions=0, summaries=0, codex=true/true, gemini=true/true, enabledWorktrees=1, opencode=false/undefined, cursor=false/undefined, copilot=false/true, copilotChat=true, cline=false/undefined
+[2026-08-30T13:17:18.142Z] INFO  [Installer] Checking Jolli Memory status
+[2026-08-30T13:17:18.591Z] INFO  [Installer] Status: enabled=true, claude=true, git=true, geminiHook=true, worktreeHooks=true, sessions=0, summaries=0, codex=true/true, gemini=true/true, enabledWorktrees=1, opencode=false/undefined, cursor=false/undefined, copilot=false/true, copilotChat=true, cline=false/undefined
+[2026-08-30T13:17:18.611Z] WARN  [CutoverRouter] database unavailable for un-cutover repo (database file does not exist) — orphan remains authoritative
+[2026-08-30T13:17:18.612Z] INFO  [StorageFactory] StorageFactory.create: route=uncutover, projectPath=c:\Users\rsubi\AI-Revenue-Recovery
+[2026-08-30T13:17:19.421Z] INFO  [Installer] Status: enabled=true, claude=true, git=true, geminiHook=true, worktreeHooks=true, sessions=0, summaries=0, codex=true/true, gemini=true/true, enabledWorktrees=1, opencode=false/undefined, cursor=false/undefined, copilot=false/true, copilotChat=true, cline=false/undefined
+[2026-08-30T14:15:03.446Z] INFO  [deactivate] Jolli Memory extension deactivating
+[2026-08-30T16:18:00.805Z] INFO  [activate] Activating JolliMemory extension {"workspaceRoot":"c:\\Users\\rsubi\\AI-Revenue-Recovery","extensionPath":"c:\\Users\\rsubi\\.vscode\\extensions\\jolli.jollimemory-vscode-0.99.16"}
+[2026-08-30T16:18:01.138Z] INFO  [initialLoad] Loading all panels
+[2026-08-30T16:18:02.255Z] INFO  [RepoProfile] manual-disable read → false (by=manuallyDisabled, pid=14644, cwd=c:\Users\rsubi\AI-Revenue-Recovery, profile=c:\Users\rsubi\AI-Revenue-Recovery\.jolli\jollimemory\profile.json, raw: userDisabled=undefined manuallyDisabled=false fence=none)
+[2026-08-30T16:18:02.270Z] INFO  [bridge] Own dist-paths/vscode missing, stale, or pointing elsewhere — re-enabling
+[2026-08-30T16:18:02.270Z] INFO  [bridge] enable() called
+[2026-08-30T16:18:02.271Z] INFO  [Installer] Installing Jolli Memory hooks
+[2026-08-30T16:18:02.301Z] INFO  [PlanService] detectPlans found 0 plans (0 in registry)
+[2026-08-30T16:18:02.301Z] INFO  [NoteService] detectNotes found 0 notes (0 in registry)
+[2026-08-30T16:18:02.301Z] INFO  [references] detectReferences(*) found 0 (0 in registry)
+[2026-08-30T16:18:02.301Z] INFO  [SkillProjection] projectActiveSkills: 0 active (0 in registry)
+[2026-08-30T16:18:02.598Z] WARN  [CutoverRouter] database unavailable for un-cutover repo (database file does not exist) — orphan remains authoritative
+[2026-08-30T16:18:02.936Z] INFO  [Sync:VsCodeBootstrap] Memory Bank sync engine built (auto-sync off — manual only)
+[2026-08-30T16:18:02.994Z] WARN  [CutoverRouter] database unavailable for un-cutover repo (database file does not exist) — orphan remains authoritative
+[2026-08-30T16:18:02.994Z] INFO  [StorageFactory] StorageFactory.create: route=uncutover, projectPath=c:\Users\rsubi\AI-Revenue-Recovery
+[2026-08-30T16:18:03.197Z] INFO  [Installer] Checking Jolli Memory status
+[2026-08-30T16:18:03.289Z] INFO  [DispatchScripts] Wrote resolve-dist-path, run-hook, and run-cli scripts to C:\Users\rsubi\.jolli\jollimemory
+[2026-08-30T16:18:03.294Z] INFO  [DistPathWriter] Wrote dist-paths/vscode (version=0.99.16, distDir=c:\Users\rsubi\.vscode\extensions\jolli.jollimemory-vscode-0.99.16\dist)
+[2026-08-30T16:18:03.410Z] WARN  [CutoverRouter] database unavailable for un-cutover repo (database file does not exist) — orphan remains authoritative
+[2026-08-30T16:18:03.410Z] INFO  [StorageFactory] StorageFactory.create: route=uncutover, projectPath=c:\Users\rsubi\AI-Revenue-Recovery
+[2026-08-30T16:18:03.839Z] INFO  [bridge] Merged mode activated {"branch":"main","creationPoint":"70d5a4eb","author":"subiksha-rajasekaran"}
+[2026-08-30T16:18:05.871Z] WARN  [CutoverRouter] database unavailable for un-cutover repo (database file does not exist) — orphan remains authoritative
+[2026-08-30T16:18:05.969Z] WARN  [CutoverRouter] database unavailable for un-cutover repo (database file does not exist) — orphan remains authoritative
+[2026-08-30T16:18:05.970Z] INFO  [StorageFactory] StorageFactory.create: route=uncutover, projectPath=c:\Users\rsubi\AI-Revenue-Recovery
+[2026-08-30T16:18:06.361Z] WARN  [ReadStorageResolver] createReadStorage: folder lacks index.json — falling back to orphan branch (migration incomplete, or folder wiped)
+[2026-08-30T16:18:06.513Z] INFO  [SchemaV5Migration] Storage backend not initialized yet — skipping schema v5 migration (no data to migrate)
+[2026-08-30T16:18:06.513Z] INFO  [activate] Schema v5 migration: alreadyDone=false fresh=true migrated=0 skipped=0
+[2026-08-30T16:18:06.826Z] WARN  [CutoverRouter] database unavailable for un-cutover repo (database file does not exist) — orphan remains authoritative
+[2026-08-30T16:18:07.275Z] INFO  [McpRegistration] Registered MCP server in C:\Users\rsubi\AI-Revenue-Recovery\.mcp.json
+[2026-08-30T16:18:07.352Z] INFO  [JsonMcpWriter] Registered MCP server in C:\Users\rsubi\.gemini\settings.json
+[2026-08-30T16:18:07.417Z] INFO  [CodexTomlWriter] Registered Codex MCP server in C:\Users\rsubi\.codex\config.toml
+[2026-08-30T16:18:07.426Z] INFO  [JsonMcpWriter] Registered MCP server in C:\Users\rsubi\AppData\Roaming\Code\User\mcp.json
+[2026-08-30T16:18:07.447Z] INFO  [Installer] Skipping v5 migration on vscode-extension source — Extension.ts owns it with UI
+[2026-08-30T16:18:07.447Z] INFO  [Installer] Installation complete
+[2026-08-30T16:18:07.449Z] INFO  [Installer] Checking Jolli Memory status
+[2026-08-30T16:18:08.145Z] INFO  [Installer] Status: enabled=true, claude=true, git=true, geminiHook=true, hermesHook=false, worktreeHooks=true, sessions=0, summaries=0, codex=true/true, gemini=true/true, enabledWorktrees=1, opencode=false/undefined, cursor=false/undefined, copilot=false/true, copilotChat=true, cline=false/undefined
+[2026-08-30T16:18:08.365Z] INFO  [initialLoad] All panels loaded — updating status bar
+[2026-08-30T16:18:08.387Z] WARN  [CutoverRouter] database unavailable for un-cutover repo (database file does not exist) — orphan remains authoritative
+[2026-08-30T16:18:08.388Z] INFO  [Installer] Checking Jolli Memory status
+[2026-08-30T16:18:08.918Z] INFO  [Installer] Status: enabled=true, claude=true, git=true, geminiHook=true, hermesHook=false, worktreeHooks=true, sessions=0, summaries=0, codex=true/true, gemini=true/true, enabledWorktrees=1, opencode=false/undefined, cursor=false/undefined, copilot=false/true, copilotChat=true, cline=false/undefined
+[2026-08-30T16:18:08.932Z] INFO  [Installer] Checking Jolli Memory status
+[2026-08-30T16:18:09.307Z] INFO  [Installer] Status: enabled=true, claude=true, git=true, geminiHook=true, hermesHook=false, worktreeHooks=true, sessions=0, summaries=0, codex=true/true, gemini=true/true, enabledWorktrees=1, opencode=false/undefined, cursor=false/undefined, copilot=false/true, copilotChat=true, cline=false/undefined
+[2026-08-30T16:18:09.321Z] WARN  [CutoverRouter] database unavailable for un-cutover repo (database file does not exist) — orphan remains authoritative
+[2026-08-30T16:18:09.321Z] INFO  [StorageFactory] StorageFactory.create: route=uncutover, projectPath=c:\Users\rsubi\AI-Revenue-Recovery
+[2026-08-30T16:18:09.871Z] INFO  [Installer] Status: enabled=true, claude=true, git=true, geminiHook=true, hermesHook=false, worktreeHooks=true, sessions=0, summaries=0, codex=true/true, gemini=true/true, enabledWorktrees=1, opencode=false/undefined, cursor=false/undefined, copilot=false/true, copilotChat=true, cline=false/undefined
+[2026-08-30T16:18:09.877Z] INFO  [Installer] Checking Jolli Memory status
+[2026-08-30T16:18:10.295Z] INFO  [Installer] Status: enabled=true, claude=true, git=true, geminiHook=true, hermesHook=false, worktreeHooks=true, sessions=0, summaries=0, codex=true/true, gemini=true/true, enabledWorktrees=1, opencode=false/undefined, cursor=false/undefined, copilot=false/true, copilotChat=true, cline=false/undefined
+[2026-08-30T16:43:35.796Z] INFO  [deactivate] Jolli Memory extension deactivating
+[2026-08-31T16:09:47.396Z] INFO  [activate] Activating JolliMemory extension {"workspaceRoot":"c:\\Users\\rsubi\\AI-Revenue-Recovery","extensionPath":"c:\\Users\\rsubi\\.vscode\\extensions\\jolli.jollimemory-vscode-0.99.16"}
+[2026-08-31T16:09:47.835Z] INFO  [initialLoad] Loading all panels
+[2026-08-31T16:09:48.697Z] INFO  [RepoProfile] manual-disable read → false (by=manuallyDisabled, pid=20432, cwd=c:\Users\rsubi\AI-Revenue-Recovery, profile=c:\Users\rsubi\AI-Revenue-Recovery\.jolli\jollimemory\profile.json, raw: userDisabled=undefined manuallyDisabled=false fence=none)
+[2026-08-31T16:09:48.740Z] INFO  [PlanService] detectPlans found 0 plans (0 in registry)
+[2026-08-31T16:09:48.740Z] INFO  [NoteService] detectNotes found 0 notes (0 in registry)
+[2026-08-31T16:09:48.740Z] INFO  [references] detectReferences(*) found 0 (0 in registry)
+[2026-08-31T16:09:48.740Z] INFO  [SkillProjection] projectActiveSkills: 0 active (0 in registry)
+[2026-08-31T16:09:48.742Z] WARN  [CutoverRouter] database unavailable for un-cutover repo (database file does not exist) — orphan remains authoritative
+[2026-08-31T16:09:49.171Z] INFO  [Sync:VsCodeBootstrap] Memory Bank sync engine built (auto-sync off — manual only)
+[2026-08-31T16:09:49.201Z] WARN  [CutoverRouter] database unavailable for un-cutover repo (database file does not exist) — orphan remains authoritative
+[2026-08-31T16:09:49.201Z] INFO  [StorageFactory] StorageFactory.create: route=uncutover, projectPath=c:\Users\rsubi\AI-Revenue-Recovery
+[2026-08-31T16:09:49.449Z] INFO  [Installer] Checking Jolli Memory status
+[2026-08-31T16:09:49.449Z] INFO  [Installer] Checking Jolli Memory status
+[2026-08-31T16:09:49.744Z] WARN  [CutoverRouter] database unavailable for un-cutover repo (database file does not exist) — orphan remains authoritative
+[2026-08-31T16:09:49.745Z] INFO  [StorageFactory] StorageFactory.create: route=uncutover, projectPath=c:\Users\rsubi\AI-Revenue-Recovery
+[2026-08-31T16:09:50.157Z] WARN  [CutoverRouter] database unavailable for un-cutover repo (database file does not exist) — orphan remains authoritative
+[2026-08-31T16:09:50.158Z] INFO  [StorageFactory] StorageFactory.create: route=uncutover, projectPath=c:\Users\rsubi\AI-Revenue-Recovery
+[2026-08-31T16:09:50.555Z] INFO  [bridge] Merged mode activated {"branch":"main","creationPoint":"70d5a4eb","author":"subiksha-rajasekaran"}
+[2026-08-31T16:09:55.203Z] INFO  [SchemaV5Migration] Storage backend not initialized yet — skipping schema v5 migration (no data to migrate)
+[2026-08-31T16:09:55.203Z] INFO  [activate] Schema v5 migration: alreadyDone=false fresh=true migrated=0 skipped=0
+[2026-08-31T16:09:55.706Z] WARN  [CutoverRouter] database unavailable for un-cutover repo (database file does not exist) — orphan remains authoritative
+[2026-08-31T16:09:56.633Z] WARN  [CutoverRouter] database unavailable for un-cutover repo (database file does not exist) — orphan remains authoritative
+[2026-08-31T16:09:56.642Z] WARN  [CutoverRouter] database unavailable for un-cutover repo (database file does not exist) — orphan remains authoritative
+[2026-08-31T16:09:57.335Z] WARN  [ReadStorageResolver] createReadStorage: folder lacks index.json — falling back to orphan branch (migration incomplete, or folder wiped)
+[2026-08-31T16:10:01.902Z] INFO  [Installer] Status: enabled=true, claude=true, git=true, geminiHook=true, hermesHook=false, worktreeHooks=true, sessions=0, summaries=0, codex=true/true, gemini=true/true, enabledWorktrees=1, opencode=false/undefined, cursor=false/undefined, copilot=false/true, copilotChat=true, cline=false/undefined
+[2026-08-31T16:10:01.902Z] INFO  [Installer] Status: enabled=true, claude=true, git=true, geminiHook=true, hermesHook=false, worktreeHooks=true, sessions=0, summaries=0, codex=true/true, gemini=true/true, enabledWorktrees=1, opencode=false/undefined, cursor=false/undefined, copilot=false/true, copilotChat=true, cline=false/undefined
+[2026-08-31T16:10:01.917Z] INFO  [initialLoad] All panels loaded — updating status bar
+[2026-08-31T16:10:01.919Z] WARN  [CutoverRouter] database unavailable for un-cutover repo (database file does not exist) — orphan remains authoritative
+[2026-08-31T16:10:01.919Z] INFO  [Installer] Checking Jolli Memory status
+[2026-08-31T16:10:01.919Z] INFO  [Installer] Checking Jolli Memory status
+[2026-08-31T16:10:02.475Z] INFO  [Installer] Status: enabled=true, claude=true, git=true, geminiHook=true, hermesHook=false, worktreeHooks=true, sessions=0, summaries=0, codex=true/true, gemini=true/true, enabledWorktrees=1, opencode=false/undefined, cursor=false/undefined, copilot=false/true, copilotChat=true, cline=false/undefined
+[2026-08-31T16:10:02.752Z] INFO  [Installer] Status: enabled=true, claude=true, git=true, geminiHook=true, hermesHook=false, worktreeHooks=true, sessions=0, summaries=0, codex=true/true, gemini=true/true, enabledWorktrees=1, opencode=false/undefined, cursor=false/undefined, copilot=false/true, copilotChat=true, cline=false/undefined
+[2026-08-31T16:10:02.857Z] INFO  [Installer] Checking Jolli Memory status
+[2026-08-31T16:10:02.874Z] WARN  [CutoverRouter] database unavailable for un-cutover repo (database file does not exist) — orphan remains authoritative
+[2026-08-31T16:10:02.874Z] INFO  [StorageFactory] StorageFactory.create: route=uncutover, projectPath=c:\Users\rsubi\AI-Revenue-Recovery
+[2026-08-31T16:10:03.743Z] INFO  [Installer] Status: enabled=true, claude=true, git=true, geminiHook=true, hermesHook=false, worktreeHooks=true, sessions=0, summaries=0, codex=true/true, gemini=true/true, enabledWorktrees=1, opencode=false/undefined, cursor=false/undefined, copilot=false/true, copilotChat=true, cline=false/undefined
