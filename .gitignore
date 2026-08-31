@@ -16,3 +16,6 @@ dist/
 .vite/
 .cache/
 *.logs
+.claude/
+.gemini/
+.jolli/
